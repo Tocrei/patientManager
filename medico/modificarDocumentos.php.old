@@ -1,0 +1,69 @@
+
+<?php
+	session_start();
+$dni = $_SESSION['dni'];
+
+$conn = new MongoClient("mongodb://davidalvaro:patientmanager2017@127.0.0.1/patientmanager?authSource=admin");
+$db = $conn->patientmanager;
+
+	if(isset($_POST['idPaciente']))
+		$dniPaciente = $_POST['idPaciente'];
+
+	if(isset($_POST['DNI']))
+		$dniPaciente = $_POST['DNI'];
+
+	if(isset($_POST['nameTest']))
+		$nameTest = $_POST['nameTest'];
+
+	if(isset($_POST['submit'])){
+		if(!empty($_POST['check_list'])){
+			foreach($_POST['check_list'] as $selected){
+
+				echo "El fichero ".str_replace('?',' ',$selected) ." ha sido eliminado </br>";
+				unlink("../documentos/$dniPaciente/" .str_replace('?',' ',$selected));
+
+			}
+		}
+		echo "Ningún archivo ha sido seleccionado";
+	}
+
+	if(isset($_POST['Test'])){
+		$unomas = $db->tests;
+		$cursor = $unomas->find();
+		$cursor = $unomas->remove( array('Nombre'=>$nameTest), array('DNIPaciente'=>$dniPaciente));
+	}
+
+	if(isset($_POST['DatosPersonales'])){
+		$pac = $db->pacientes;
+		$doc = array();	
+		foreach($_POST as $nombre_campo => $valor){ 
+		   $doc[$nombre_campo] = $valor;
+		}
+		$nuevosdatos = array('$set'=>$doc);
+		$pac->update(array("DNI"=>$dniPaciente),$nuevosdatos);
+		header("Location: modificarPacientes.php");
+	}
+	
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<?php include 'links.php';?>
+		
+	</head>
+
+	<body>
+		<?php include 'navMedico.php';?>
+		<div class="container">
+
+			<span>Test eliminado. </span>
+			<form action="modificarPaciente.php" method="post">
+				<input type="hidden" name="idPaciente" value=<?php echo $dniPaciente;?>>
+				<input class="btn-back" type="submit" name="Submit" value="Volver"/>
+			</form>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,181 @@
+body{
+	padding-top: 70px;
+}
+
+.panel{
+	border: none;
+}
+
+.panel-heading{
+	font-size: 1.4em;
+	text-transform: uppercase;
+	text-decoration: underline;
+}	
+
+.panel-heading .alta{
+	background-color: lightgreen;
+}
+
+.panel-heading .info{
+	background-color: lightblue;
+}
+
+.panel-heading .baja{
+	background-color: darksalmon;
+}
+
+tbody tr td label{
+	padding-right: 4em;
+}
+.btn-ancho{
+	font-family: FontAwesome;
+	width: 3.5em;
+}
+
+.btn-peticion{
+	text-align: center;
+}
+
+tbody tr td label, tbody tr td input{
+	margin-bottom: 0.2em;
+}
+
+.celda{
+	vertical-align: middle !important;
+}
+
+.label-grueso, .label-fino{
+	margin-bottom: 0.3em;
+	margin-top: 0.3em
+}
+
+.label-fino{
+	font-weight: lighter;
+}
+
+.tabla-form tr td input:focus{
+	border:2px solid black;
+}
+
+.btn-aceptar{
+	margin-top: 2em;
+	padding: 0 1em;
+	text-align: center;
+	height: 2em;
+	line-height: 2em;
+	border: 1px solid black;
+	font-weight: bold;
+}
+
+.btn-aceptar:hover{
+	background-color: lightgreen;
+}
+
+.btn-aceptar-baja{
+	margin-top: 2em;
+	padding: 0 1em;
+	text-align: center;
+	height: 2em;
+	line-height: 2em;
+	border: 1px solid black;
+	font-weight: bold;
+}
+
+.btn-aceptar-baja:hover{
+	background-color: darksalmon;
+}
+
+.btn-aceptar-consulta{
+	margin-top: 2em;
+	padding: 0 1em;
+	text-align: center;
+	height: 2em;
+	line-height: 2em;
+	border: 1px solid black;
+	font-weight: bold;
+}
+
+.btn-aceptar-consulta:hover{
+	background-color: lightblue;
+}
+
+.btn-aceptar-consulta-index{
+	padding: 0 1em;
+	text-align: center;
+	height: 2em;
+	line-height: 2em;
+	border: 1px solid black;
+	font-weight: bold;
+}
+
+.btn-aceptar-consulta-index:hover{
+	background-color: lightblue;
+}
+
+.table-cebreada{
+	margin-bottom: 1em;
+}
+
+.table-cebreada tr:nth-child(odd){
+	background-color: #eeeeee;
+}
+
+.table-cebreada tr:nth-child(even){
+	background-color: white;
+}
+
+.btn-volver-atras{
+	padding: 0.3em 1em;
+	text-align: center;
+	height: 2em;
+	line-height: 2em;
+	border: 1px solid black;
+	font-weight: bold;
+	color: black;
+}
+
+.btn-volver-atras:hover{
+	text-decoration: none;
+	color: black;
+	background-color: lightblue;
+}
+
+
+.dni-oculto{
+	border: none;
+}
+
+
+
+.row{
+	margin-top: 3em;
+}
+
+.panel-cuad-index{
+	height: 7.5em;
+}
+
+.panel-enlace-alta, .panel-enlace-info, .panel-enlace-danger{
+	text-decoration: none;
+	color: black;
+}
+
+.panel-enlace-alta:hover, .panel-enlace-info:hover, .panel-enlace-danger:hover{
+	color: black;
+	text-decoration: none;
+}
+
+.panel-enlace-alta .panel:hover{
+	background-color: #dff0d8;
+	/*border: 1px solid #3c763d;*/
+}
+
+.panel-enlace-info .panel:hover{
+	background-color: #d9edf7;
+	/*border: 1px solid #31708f;*/
+}
+
+.panel-enlace-danger .panel:hover{
+	background-color: #f2dede;
+	/*border: 1px solid #a94442;*/
+}

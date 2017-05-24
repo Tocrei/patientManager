@@ -1,0 +1,122 @@
+body{
+	background-image: url("../img/foto-background.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.contenido{
+	width:100%;
+}
+
+
+.login{
+	position: absolute;
+	width: 500px;
+	height: 400px;
+	top: 50%;
+	margin-top: -200px;
+	left: 50%;
+	margin-left: -250px;
+	background-color: #6a9cee;
+	border: 5px solid #06398e;
+	border-radius: 5%;
+	opacity: 0.7;
+}
+
+.login h1{
+	padding-top: 30px;
+	text-align: center;
+	font-size: 35px;
+	color: #black;
+}
+
+fieldset{
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+.datos{
+	position: relative;
+	width: 100%;
+	padding:0;
+	text-align: center;
+}
+
+.datos .campo{
+	width: 80%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	font-weight: bold; 
+	margin: 10px 0;
+	padding: 0 10px;
+	border: 1px solid black;
+}
+
+.datos .btn-log{
+	width: 30%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 20px;
+	font-weight: bold; 
+	margin: 15px 0 45px;
+	border: 1px solid black;
+}
+
+.datos .btn-log:hover{
+	background: #06398e;
+	color: white;
+}
+
+.datos .campo:focus{
+	border: 3px solid #06398e;
+	background-color: #e8eaee;
+}
+
+.enlace{
+	float: right;
+	padding-right: 20px;
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+}
+
+.enlace:hover, .enlaceatras:hover{
+	text-decoration: underline;
+}
+
+.enlaceatras{
+	float: right;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+}
+
+.registro{
+	position: absolute;
+	width: 500px;
+	height: 100%
+
+	margin-top: -50%;
+	left: 50%;
+	margin-left: -250px;
+	background-color: #6a9cee;
+	border: 5px solid #06398e;
+	border-radius: 5%;
+	opacity: 0.7;
+}
+
+.registro h1{
+	padding-top: 30px;
+	text-align: center;
+	font-size: 35px;
+	color: #black;
+}
+

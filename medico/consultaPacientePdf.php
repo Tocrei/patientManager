@@ -1,0 +1,129 @@
+<?php 
+session_start();
+
+$dni = $_SESSION['dni'];
+$conn = new MongoClient("mongodb://davidalvaro:patientmanager2017@127.0.0.1/patientmanager?authSource=admin");
+$db = $conn->patientmanager;
+
+$coll = $db->usuarios;
+$res = $coll->findOne(array('DNI'=>$dni),array('_id' => 0));
+$Tipo = $res['Tipo'];
+
+$dniPaciente = $_POST['idPaciente'];
+$fua = $db->pacientes;
+$vaca = $fua->findOne(array('DNI'=>$dniPaciente),array('_id' => 0));
+
+$numFields3 = sizeof($vaca);
+
+$unomas = $db->tests;
+$cursor = $unomas->find();
+
+$t=1;
+
+require_once('../tcpdf/tcpdf.php');
+
+// create new PDF document
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, false, 'ISO-8859-1', false);
+
+// Set document information dictionary in unicode mode
+$pdf->SetDocInfoUnicode(true);
+
+// set document information
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Hey [€]');
+$pdf->SetTitle('PDF');
+$pdf->SetSubject('TCPDF Tutorial');
+$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+// set default header data
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH,"DNI del paciente:" . $dniPaciente, "Autores: Alvaro & David");
+
+// set header and footer fonts
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+// set default monospaced font
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+// set auto page breaks
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+// set image scale factor
+$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+// set some language dependent data:
+$lg = Array();
+$lg['a_meta_charset'] = 'UTF-8';
+$lg['a_meta_dir'] = 'ltr';
+$lg['a_meta_language'] = 'es';
+$lg['w_page'] = 'page';
+
+// set some language-dependent strings (optional)
+$pdf->setLanguageArray($lg);
+
+// ---------------------------------------------------------
+
+// set font
+$pdf->SetFont('helvetica', '', 12);
+
+// add a page
+$pdf->AddPage();
+
+
+// set color for background
+$pdf->SetFillColor(200, 255, 200);
+
+$html = <<<EOD
+<p> Datos personales: </p>
+<table>
+
+EOD;
+
+for($t=0;$t<$numFields3;$t++) {
+	if(ucfirst(array_keys($vaca)[$t]) != "Médico"){
+		$html .= <<<EOD
+			<tr>
+				<td>
+				<label>
+
+EOD;
+$html .= str_replace('_',' ',ucfirst(array_keys($vaca)[$t]));
+$html .= <<<EOD
+			</label>
+				</td>
+				<td>
+					<label>
+
+EOD;
+			$html .= str_replace('_',' ',$vaca[array_keys($vaca)[$t]]);
+			$html .= <<<EOD
+			</label>
+				</td>
+				</tr>
+
+EOD;
+	}
+}
+
+$html .= <<<EOD
+
+</table>
+EOD;
+
+
+
+
+$pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+
+ob_end_clean();
+$pdf->Output('example_001.pdf', 'I');	
+		
+	 
+
+
+?>
