@@ -353,7 +353,7 @@ else if($enfermedad != "" && $sexo != "" && $edadInicio >= "-1" && $edadFin <= "
 	<head>
 		<?php include 'links.php';?>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<link rel="stylesheet" href="/tfg/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
 
 
 

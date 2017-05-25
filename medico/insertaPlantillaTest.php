@@ -15,7 +15,7 @@ $tag = $db->tags;
 		
 	<head>
 		<?php include 'links.php';?>
-		<link rel="stylesheet" href="/tfg/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
 		<script type="text/javascript">
 		
 			function correcto(){

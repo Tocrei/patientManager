@@ -24,7 +24,7 @@ $t=1;
 <!DOCTYPE html>
 <html lang="en">
 	<head>	
-		<link rel="stylesheet" href="/tfg/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
 		<?php include 'links.php';?>
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
 	</head>

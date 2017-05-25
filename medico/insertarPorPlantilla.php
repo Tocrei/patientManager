@@ -15,7 +15,7 @@ $plan = $coll->find(array('Campo_2'=>$dni),array('_id'=>0));
 <html lang="en">
 		
 	<head>
-		<link rel="stylesheet" href="/tfg/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
 		<?php include 'links.php';?>		
 	</head>
 
