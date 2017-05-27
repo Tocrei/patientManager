@@ -17,7 +17,7 @@ $res = $coll->findOne(array('DNI'=>$dni),array('Contraseña', 'Tipo'));
 		echo '<script type="text/javascript">';
 		echo 'alert("Usuario o contraseña incorrectos");';
 		echo '</script>';
-		header( "Refresh:0; url=http://localhost/tfg/login.php", true, 303);
+		header( "Refresh:0; url=login.php", true, 303);
 
 }else{
 		if( $pass == $res['Contraseña']){
