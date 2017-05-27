@@ -27,7 +27,7 @@ $res = $coll->findOne(array('DNI'=>$dni),array('Contraseña', 'Tipo'));
 				header('Location: index.php');
 			}
 			else{
-				header('Location: ../medico/indexMedico.php');
+				header('Location: /patientManager/medico/indexMedico.php');
 			}
 			
 		}else{
