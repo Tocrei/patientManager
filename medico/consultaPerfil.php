@@ -60,16 +60,19 @@ function cargaimagen()
 								
 							<?php
 								 //Iniciamos el bucle de las filas
-								for($t=0;$t<$numFields;$t++){
+							$hey = array_keys($res);
+								foreach ($hey as $valor){
+
 									echo "<tr>";
 										echo "<td>";
-										if(ucfirst(array_keys($res)[$t]) != "Tipo" && ucfirst(array_keys($res)[$t]) != "Contraseña"  )
+										
+										if(ucfirst(  $valor ) != "Tipo" && ucfirst(  $valor  ) != "Contraseña"  )
 										{
-											echo "<label class='label-grueso' for='nombre'>" .str_replace('_',' ',ucfirst(array_keys($res)[$t])). " </label>";
+											echo "<label class='label-grueso' for='nombre'>" .str_replace('_',' ',ucfirst(  $valor  )). " </label>";
 										
 										echo "</td>";
 										echo "<td>";
-											echo "<label class='label-fino'>" .$res[array_keys($res)[$t]]. " </label>";
+											echo "<label class='label-fino'>" . array_shift($res). " </label>";
 										echo "</td>";
 										}
 									echo "</tr>";
