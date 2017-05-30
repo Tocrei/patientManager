@@ -114,13 +114,14 @@ $pet = $db->peticionAlta;
 								
 							<?php
 								 //Iniciamos el bucle de las filas
-								for($t=0;$t<$numFields;$t++){
+								$hey = array_keys($res2);
+								foreach ($hey as $valor){
 									echo "<tr>";
 										echo "<td>";
-											echo "<label class='label-grueso' for='nombre'>" .str_replace('_',' ',ucfirst(array_keys($res2)[$t])). " </label>";
+											echo "<label class='label-grueso' for='nombre'>" .str_replace('_',' ',ucfirst( $valor ) ). " </label>";
 										echo "</td>";
 										echo "<td>";
-											echo "<label  class='label-fino'>" .$res2[array_keys($res2)[$t]]. " </label>";
+											echo "<label  class='label-fino'>" .array_shift($res). " </label>";
 										echo "</td>";
 									echo "</tr>";
 								 }

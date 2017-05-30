@@ -113,17 +113,22 @@ if($res == null)
 									</td>
 								</tr>
 								<?php
-									for($t=1;$t<$numFields;$t++){
+									$hey = array_keys($res);
+									foreach ($hey as $valor){
 										echo "<tr>";
 											echo "<td>";
-												echo "<label for='nombre'>" .str_replace('_',' ',ucfirst(array_keys($res)[$t])). " </label>";
+											if(ucfirst(  $valor ) != "DNI"  )
+											{
+												echo "<label for='nombre'>" .str_replace('_',' ',ucfirst( $valor)). " </label>";
+											
 											echo "</td>";
 											echo "<td>";
 								?>
-											<input id="<?php echo ucfirst(array_keys($res)[$t]) ?>" name="<?php echo ucfirst(array_keys($res)[$t]) ?>" type='text' value="<?php echo $res[array_keys($res)[$t]] ?>">
+											<input id="<?php echo ucfirst($valor) ?>" name="<?php echo ucfirst($valor) ?>" type='text' value="<?php echo array_shift($res) ?>">
 
 								<?php
 											echo "</td>";
+										}
 										echo "</tr>";
 
 									 }									 

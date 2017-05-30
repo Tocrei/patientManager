@@ -53,16 +53,18 @@ $t=1;
 									<table class="table table-striped table-bordered table-hover" data-method="POST">
 
 										<?php 
-											for($t=0;$t<$numFields3;$t++) {
-												if(ucfirst(array_keys($vaca)[$t]) != "Médico"){
+											$hey = array_keys($vaca);
+											foreach ($hey as $valor){
+												if(ucfirst($valor ) != "Médico"){
 													echo "<tr>";
 														echo "<td>";
 
-															echo "<label class='label-fino' for='nombre'>" .str_replace('_',' ',ucfirst(array_keys($vaca)[$t])). " </label>";
+															echo "<label class='label-fino' for='nombre'>" .str_replace('_',' ',ucfirst($valor )). " </label>";
 														
 														echo "</td>";
 														echo "<td>";
-															echo "<input  id='".str_replace('_',' ',$vaca[array_keys($vaca)[$t]])."' value='".str_replace('_',' ',$vaca[array_keys($vaca)[$t]])."' name='".ucfirst(array_keys($vaca)[$t])."' readonly>";
+															$evitarPerdidaPorShift = array_shift($res);
+															echo "<input  id='".str_replace('_',' ',$evitarPerdidaPorShift)."' value='".str_replace('_',' ',$evitarPerdidaPorShift)."' name='".ucfirst($evitarPerdidaPorShift)."' readonly>";
 														echo "</td>";
 													echo "</tr>";
 												}
