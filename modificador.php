@@ -134,7 +134,7 @@ if($res == null)
 										{
 											//para mantener la integridad del array si no queremos mostrarlo lo quitamos también,
 											//esto nos permitira mostar en orden.
-											array_shift($res)
+											array_shift($res);
 										}
 										echo "</tr>";
 

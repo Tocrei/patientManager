@@ -72,7 +72,7 @@ $t=1;
 												{
 													//para mantener la integridad del array si no queremos mostrarlo lo quitamos también,
 													//esto nos permitira mostar en orden.
-													array_shift($vaca)
+													array_shift($vaca);
 												}
 											}
 											echo "<form id='form_algo' name='form' action='listaPacientes.php' method='post'>";	
