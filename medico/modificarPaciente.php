@@ -48,19 +48,26 @@ $t=1;
 
 										<?php
 											echo "<form id='form_algo' name='form' action='modificarDocumentos.php' method='post'>";
-												for($t=0;$t<$numFields3;$t++) {
-														if(ucfirst(array_keys($vaca)[$t]) != "Médico"){
-														echo "<tr>";
-															echo "<td>";
+												$hey = array_keys($vaca);
+												foreach ($hey as $valor){
+														if(ucfirst($valor) != "Médico"){
+															echo "<tr>";
+																echo "<td>";
 
-																echo "<label class='label-fino' for='nombre'>" .str_replace('_',' ',ucfirst(array_keys($vaca)[$t])). " </label>";
+																	echo "<label class='label-fino' for='nombre'>" .str_replace('_',' ',ucfirst($valor)). " </label>";
 
-															echo "</td>";
-															echo "<td>";
-																echo "<input  id='".str_replace('_',' ',$vaca[array_keys($vaca)[$t]])."' value='".str_replace('_',' ',$vaca[array_keys($vaca)[$t]])."' name='".ucfirst(array_keys($vaca)[$t])."' ";
-															echo "</td>";
-														echo "</tr>";
-													}
+																echo "</td>";
+																echo "<td>";
+																	echo "<input  id='".str_replace('_',' ',$valor)."' value='".str_replace('_',' ', array_shift($vaca))."' name='".str_replace('_',' ',$valor)."' ";
+																echo "</td>";
+															echo "</tr>";
+														}
+														else
+														{
+															//para mantener la integridad del array si no queremos mostrarlo lo quitamos también,
+															//esto nos permitira mostar en orden.
+															array_shift($res);
+														}
 												}
 												echo "<input class='btn-volver-atras btn-volver-bot2' type='submit' name='DatosPersonales' value='Modificar'/>";
 											echo "</form>";

@@ -81,7 +81,7 @@ function cargaimagen()
 							</td>
 						</tr>
 					</table>
-					<a class="btn-volver-atras" href="/medico/modificaDatosPersonales.php">Modificar datos</a>
+					<a class="btn-volver-atras" href="/patientManager/medico/modificaDatosPersonales.php">Modificar datos</a>
 				</div>
 			</div>
 		</div> 
