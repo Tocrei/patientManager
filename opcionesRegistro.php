@@ -121,7 +121,7 @@ $pet = $db->peticionAlta;
 											echo "<label class='label-grueso' for='nombre'>" .str_replace('_',' ',ucfirst( $valor ) ). " </label>";
 										echo "</td>";
 										echo "<td>";
-											echo "<label  class='label-fino'>" .array_shift($res). " </label>";
+											echo "<label  class='label-fino'>" .array_shift($res2). " </label>";
 										echo "</td>";
 									echo "</tr>";
 								 }

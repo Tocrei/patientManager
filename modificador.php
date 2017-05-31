@@ -114,6 +114,7 @@ if($res == null)
 								</tr>
 								<?php
 									$hey = array_keys($res);
+
 									foreach ($hey as $valor){
 										echo "<tr>";
 											echo "<td>";
@@ -128,6 +129,12 @@ if($res == null)
 
 								<?php
 											echo "</td>";
+										}
+										else
+										{
+											//para mantener la integridad del array si no queremos mostrarlo lo quitamos también,
+											//esto nos permitira mostar en orden.
+											array_shift($res)
 										}
 										echo "</tr>";
 

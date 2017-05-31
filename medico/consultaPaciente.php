@@ -63,10 +63,16 @@ $t=1;
 														
 														echo "</td>";
 														echo "<td>";
-															$evitarPerdidaPorShift = array_shift($res);
+															$evitarPerdidaPorShift = array_shift($vaca);
 															echo "<input  id='".str_replace('_',' ',$evitarPerdidaPorShift)."' value='".str_replace('_',' ',$evitarPerdidaPorShift)."' name='".ucfirst($evitarPerdidaPorShift)."' readonly>";
 														echo "</td>";
 													echo "</tr>";
+												}
+												else
+												{
+													//para mantener la integridad del array si no queremos mostrarlo lo quitamos también,
+													//esto nos permitira mostar en orden.
+													array_shift($vaca)
 												}
 											}
 											echo "<form id='form_algo' name='form' action='listaPacientes.php' method='post'>";	
